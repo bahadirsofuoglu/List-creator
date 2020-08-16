@@ -56,7 +56,7 @@
 export default {
   async asyncData({ $axios }) {
     try {
-      const response = await $axios.$get('http://localhost:5000/api/words')
+      const response = await $axios.$get('api/words')
       console.log(response)
       return {
         words: response.words,
@@ -78,10 +78,7 @@ export default {
     async onAddSong() {
       try {
         let data = { song: this.song }
-        let response = await this.$axios.$post(
-          'http://localhost:5000/api/words',
-          data
-        )
+        let response = await this.$axios.$post('api/words', data)
 
         console.log('success')
         window.location.reload(true)
@@ -93,10 +90,7 @@ export default {
       try {
         let data = { song: this.song }
 
-        let response = await this.$axios.$put(
-          `http://localhost:5000/api/words/${this._id}`,
-          data
-        )
+        let response = await this.$axios.$put(`api/words/${this._id}`, data)
         this.song = ''
         this.isEdit = false
         console.log(response)
@@ -113,9 +107,7 @@ export default {
 
     async onDeleteSong(_id, index) {
       try {
-        let response = await this.$axios.$delete(
-          `http://localhost:5000/api/words/${_id}`
-        )
+        let response = await this.$axios.$delete(`api/words/${_id}`)
         if (response.status) {
           this.words.splice(index, 1)
         }

@@ -1,3 +1,5 @@
+const URL = 'http://localhost:5000'
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -57,7 +59,13 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true,
+    baseURL: URL,
+  },
+  proxy: {
+    '/api': URL,
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
