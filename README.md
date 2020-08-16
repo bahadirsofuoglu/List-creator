@@ -7,6 +7,12 @@ Check .env folder for mongoDB connection
 
 ```bash
 # install dependencies
-$ cd client - cd server
+$ cd client
+$ npm install
+```
+
+```bash
+# install dependencies
+$ cd server
 $ npm install
 ```
